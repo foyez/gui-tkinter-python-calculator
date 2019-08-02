@@ -3,15 +3,19 @@ import tkinter
 window = tkinter.Tk()
 window.title('Calculator')
 
-# sufficient width
-tkinter.Label(window, text='Suf. width', fg='white', bg='purple').pack()
+# creating 2 text labels and input labels
 
-# width of X
-tkinter.Label(window, text='Taking all available X width',
-              fg='white', bg='green').pack(fill='x')
+# 'Label" is used to display text
+tkinter.Label(window, text='Username').grid(row=0)  # this is placed in 0 0
+# 'Entry' is used to display the input-field
+tkinter.Entry(window).grid(row=0, column=1)  # this is placed in 0 1
 
-# height of Y
-tkinter.Label(window, text='Taking all available Y height',
-              fg='white', bg='black').pack(side='right', fill='y')
+tkinter.Label(window, text='Password').grid(row=1)  # this is placed in 1 0
+tkinter.Entry(window).grid(row=1, column=1)
+
+# 'Checkbutton' is used to create the check buttons
+tkinter.Checkbutton(window, text='Keep Me Logged In').grid(
+    columnspan=2)  # 'columnspan' tells to take the width of 2 columns
+# you can also use 'rowspan' in the similar manner
 
 window.mainloop()
