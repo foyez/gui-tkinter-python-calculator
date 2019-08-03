@@ -1,24 +1,23 @@
 import tkinter
 
+
+class GuiPractice:
+    def __init__(self, window):
+        self.text_btn = tkinter.Button(
+            window, text='Click Me!', command=self.say_hi)
+        self.text_btn.pack()
+
+        self.close_btn = tkinter.Button(
+            window, text='Close', command=window.quit)
+        self.close_btn.pack()
+
+    def say_hi(self):
+        tkinter.Label(window, text='Hi').pack()
+
+
 window = tkinter.Tk()
 window.title('GUI')
 
-
-# def say_hi():
-#     tkinter.Label(window, text='Hi').pack()
-
-
-# tkinter.Button(window, text='Click Me!', command=say_hi).pack()
-
-def event_func(e):
-    tkinter.Label(window, text='Event Executed').pack()
-
-
-# <Button-1> for left click
-# <Button-2> for middle click
-# <Button-3> for right click
-btn = tkinter.Button(window, text='Click Me!')
-btn.bind('<Button-1>', event_func)
-btn.pack()
+gui_practice = GuiPractice(window)
 
 window.mainloop()
