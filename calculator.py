@@ -14,16 +14,22 @@ def function():
 root_menu = tkinter.Menu(window)
 window.config(menu=root_menu)
 
-# creating a simple alert box
-tkinter.messagebox.showinfo("Alert Message", "This is just a alert message!")
+# creating the 'Canvas' area of width and height 500px
+canvas = tkinter.Canvas(window, width=500, height=500)
+canvas.pack()
 
-# creating a question to get the response from the user [Yes or No]
-res = tkinter.messagebox.askquestion('Simple Question', 'Do you love Python?')
-print(res)
+# 'create_line' is used to create a line. Parameters:- (starting x-point, starting y-point, ending x-point, ending y-point)
+line1 = canvas.create_line(25, 25, 250, 150)
+# parameter: (fill = color_name)
+line2 = canvas.create_line(25, 250, 250, 150, fill='red')
 
-if res == 'yes':
-    tkinter.Label(window, text='You love Python!').pack()
-else:
-    tkinter.Label(window, text='You don\'t love Python!').pack()
+# 'create_rectangle' is used to create rectangle. Parameters:- (starting x-point, starting y-point, width, height, fill)
+# starting point the coordinates of top-left point of rectangle
+rect = canvas.create_rectangle(500, 25, 175, 75, fill="green")
+
+# you 'delete' shapes using delete method passing the name of the variable as parameter.
+canvas.delete(line1)
+# you 'delete' all the shapes by passing 'ALL' as parameter to the 'delete' method
+# canvas.delete(tkinter.ALL)
 
 window.mainloop()
