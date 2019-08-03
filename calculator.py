@@ -1,21 +1,24 @@
 import tkinter
 
 window = tkinter.Tk()
-window.title('Calculator')
+window.title('GUI')
 
-# creating 2 text labels and input labels
 
-# 'Label" is used to display text
-tkinter.Label(window, text='Username').grid(row=0)  # this is placed in 0 0
-# 'Entry' is used to display the input-field
-tkinter.Entry(window).grid(row=0, column=1)  # this is placed in 0 1
+# def say_hi():
+#     tkinter.Label(window, text='Hi').pack()
 
-tkinter.Label(window, text='Password').grid(row=1)  # this is placed in 1 0
-tkinter.Entry(window).grid(row=1, column=1)
 
-# 'Checkbutton' is used to create the check buttons
-tkinter.Checkbutton(window, text='Keep Me Logged In').grid(
-    columnspan=2)  # 'columnspan' tells to take the width of 2 columns
-# you can also use 'rowspan' in the similar manner
+# tkinter.Button(window, text='Click Me!', command=say_hi).pack()
+
+def event_func(e):
+    tkinter.Label(window, text='Event Executed').pack()
+
+
+# <Button-1> for left click
+# <Button-2> for middle click
+# <Button-3> for right click
+btn = tkinter.Button(window, text='Click Me!')
+btn.bind('<Button-1>', event_func)
+btn.pack()
 
 window.mainloop()
