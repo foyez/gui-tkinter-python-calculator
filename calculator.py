@@ -1,4 +1,5 @@
 import tkinter
+import tkinter.messagebox
 
 
 window = tkinter.Tk()
@@ -13,22 +14,16 @@ def function():
 root_menu = tkinter.Menu(window)
 window.config(menu=root_menu)
 
-# creating sub menus in the root menu
+# creating a simple alert box
+tkinter.messagebox.showinfo("Alert Message", "This is just a alert message!")
 
-# it intializes a new su menu in the root menu
-file_menu = tkinter.Menu(root_menu)
-# it creates the name of the sub menu
-root_menu.add_cascade(label="File", menu=file_menu)
-# it adds a option to the sub menu 'command' parameter is used to do some action
-file_menu.add_command(label="New file.....", command=function)
-file_menu.add_command(label="Open files", command=function)
-file_menu.add_separator()  # it adds a line after the 'Open files' option
-file_menu.add_command(label="Exit", command=window.quit)
+# creating a question to get the response from the user [Yes or No]
+res = tkinter.messagebox.askquestion('Simple Question', 'Do you love Python?')
+print(res)
 
-# creting another sub menu
-edit_menu = tkinter.Menu(root_menu)
-root_menu.add_cascade(label="Edit", menu=edit_menu)
-edit_menu.add_command(label="Undo", command=function)
-edit_menu.add_command(label="Redo", command=function)
+if res == 'yes':
+    tkinter.Label(window, text='You love Python!').pack()
+else:
+    tkinter.Label(window, text='You don\'t love Python!').pack()
 
 window.mainloop()
